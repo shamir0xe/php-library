@@ -37,6 +37,16 @@ class Str {
         return false;
     }
 
+    public static function startsWith(string $string, string $alter): bool {
+        return strlen($string) >= strlen($alter) &&
+        substr($string, 0, strlen($alter)) == $alter;
+    }
+
+    public static function endsWith(string $string, string $alter): bool {
+        return strlen($string) >= strlen($alter) &&
+        substr($string, -strlen($alter), strlen($alter)) == $alter;
+    }
+
     public static function charAt(string $string, int $index): string {
         if ($index >= 0) {
             return $string[$index];

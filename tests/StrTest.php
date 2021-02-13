@@ -10,4 +10,22 @@ class StrTest extends TestCase {
         $length = Str::utf8Length($name);
         $this->assertEquals($length, 5);
     }
+
+    public function test_starts_with() {
+        $string = 'hello dear friend';
+        $this->assertTrue(Str::startsWith($string, 'hell'));
+        $this->assertTrue(Str::startsWith($string, 'h'));
+        $this->assertTrue(Str::startsWith($string, ''));
+        $this->assertTrue(Str::startsWith($string, $string));
+        $this->assertTrue(!Str::startsWith($string, 'mello'));
+    }
+
+    public function test_ends_with() {
+        $string = 'hello dear friend';
+        $this->assertTrue(Str::endsWith($string, ' friend'));
+        $this->assertTrue(Str::endsWith($string, 'd'));
+        $this->assertTrue(Str::endsWith($string, ''));
+        $this->assertTrue(Str::endsWith($string, $string));
+        $this->assertTrue(!Str::endsWith($string, 'md'));
+    }
 }
