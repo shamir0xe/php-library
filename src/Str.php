@@ -9,6 +9,14 @@ class Str {
         return str_split($string, $length);
     }
 
+    public static function utf8Length(string $string): int {
+        $length = 0;
+        foreach(Arr::range(strlen($string)) as $i) {
+            $length += (ord($string[$i]) & 0xc0) != 0x80 ? 1 : 0;
+        }
+        return $length;
+    }
+
     /**
      * we can use KMP instead of this, but anyway
      *
