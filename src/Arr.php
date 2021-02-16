@@ -23,6 +23,14 @@ class Arr {
         return $bl;
     }
 
+    public static function reverseMap(array $arr, callable $indexGenerator): array {
+        $res = [];
+        foreach($arr as $key => $value) {
+            $res[$indexGenerator($value, $key)] = $value;
+        }
+        return $res;
+    }
+
     public static function range(int $start, $end = null, $step = 1): array {
         if (\is_null($end)) {
             if ($start == 0) {
