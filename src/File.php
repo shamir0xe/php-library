@@ -13,10 +13,10 @@ class File {
      *
      * @return  [type]
      */
-    public static function readCSVFile(string $path, string $delimiter = ",") {
+    public static function readCSVFile(string $path, string $delimiter = ","): array {
         // Utils::debug('reading csv file: %', $path);
         if (!File::fileExists($path)) {
-            throw new Exception('File not found');
+            throw new \Exception('File not found');
         }
         $file = fopen($path, "r");
         $row = 0;
